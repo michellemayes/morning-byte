@@ -44,6 +44,9 @@ class DigestConfig:
     max_articles_per_section: int = 15
     include_comments_link: bool = True
     include_scores: bool = True
+    include_full_content: bool = True  # Fetch and include full article text
+    content_fetch_timeout: float = 15.0  # Timeout for fetching article content
+    max_concurrent_fetches: int = 5  # Max concurrent content fetches
     topics: list[str] = field(default_factory=lambda: ["programming", "ai", "startups", "tech"])
 
 
@@ -151,6 +154,9 @@ class Config:
                 "max_articles_per_section": self.digest.max_articles_per_section,
                 "include_comments_link": self.digest.include_comments_link,
                 "include_scores": self.digest.include_scores,
+                "include_full_content": self.digest.include_full_content,
+                "content_fetch_timeout": self.digest.content_fetch_timeout,
+                "max_concurrent_fetches": self.digest.max_concurrent_fetches,
                 "topics": self.digest.topics,
             },
         }

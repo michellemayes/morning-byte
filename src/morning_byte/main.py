@@ -11,6 +11,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
 from morning_byte.config import Config
+from morning_byte.content import enrich_articles_with_content, fetch_articles_content
 from morning_byte.delivery import EmailDelivery, LocalDelivery
 from morning_byte.epub.generator import EPUBGenerator, create_digest_from_articles
 from morning_byte.models import Article
@@ -91,6 +92,23 @@ def generate(
         if total_articles == 0:
             console.print("[yellow]No articles found. Check your configuration.[/yellow]")
             raise typer.Exit(1)
+
+        # Fetch full article content if enabled
+        if config.digest.include_full_content:
+            task = progress.add_task("Fetching full article content...", total=None)
+            all_articles = [a for articles in articles_by_source.values() for a in articles]
+            content_results = asyncio.run(
+                fetch_articles_content(
+                    all_articles,
+                    max_concurrent=config.digest.max_concurrent_fetches,
+                    timeout=config.digest.content_fetch_timeout,
+                )
+            )
+            enrich_articles_with_content(all_articles, content_results)
+            progress.remove_task(task)
+
+            success_count = sum(1 for r in content_results.values() if r.success)
+            console.print(f"[green]✓[/green] Fetched content for {success_count}/{len(all_articles)} articles")
 
         # Create digest
         task = progress.add_task("Creating digest...", total=None)
