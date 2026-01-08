@@ -34,14 +34,29 @@ sources:
   # RSS/Atom feeds - Your favorite blogs
   rss:
     enabled: true
-    max_items: 5
+    max_items: 10
     feeds:
+      # Engineering blogs
       - url: https://blog.pragmaticengineer.com/rss/
         name: Pragmatic Engineer
       - url: https://simonwillison.net/atom/everything/
         name: Simon Willison
       - url: https://www.joelonsoftware.com/feed/
         name: Joel on Software
+      - url: https://martinfowler.com/feed.atom
+        name: Martin Fowler
+      # Company engineering blogs
+      - url: https://netflixtechblog.com/feed
+        name: Netflix Tech Blog
+      - url: https://engineering.fb.com/feed/
+        name: Meta Engineering
+      - url: https://github.blog/engineering/feed/
+        name: GitHub Engineering
+      # AI/ML
+      - url: https://lilianweng.github.io/index.xml
+        name: Lilian Weng
+      - url: https://karpathy.github.io/feed.xml
+        name: Andrej Karpathy
 
 # Delivery settings (secrets set via GitHub Actions)
 delivery:

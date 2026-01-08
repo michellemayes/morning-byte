@@ -1,9 +1,9 @@
 name: Daily Tech Digest
 
 on:
-  # Run daily at 6 AM UTC (adjust to your timezone)
+  # Run daily at 6 AM Central Time (12:00 UTC)
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 12 * * *'
 
   # Allow manual trigger
   workflow_dispatch:

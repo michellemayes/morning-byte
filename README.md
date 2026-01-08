@@ -196,7 +196,7 @@ The easiest way to run Morning Byte automatically - completely free!
 
 3. **Customize** `config.yaml` with your preferred subreddits, RSS feeds, etc.
 
-4. **Done!** The workflow runs daily at 6 AM UTC. You can also trigger it manually from Actions tab.
+4. **Done!** The workflow runs daily at 6 AM Central Time. You can also trigger it manually from Actions tab.
 
 **Cost:** Free for public repos. Private repos get 2000 minutes/month free (this uses ~1 min/day = 30 min/month).
 
