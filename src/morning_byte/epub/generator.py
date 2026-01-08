@@ -188,16 +188,24 @@ class EPUBGenerator:
             <p class="article-domain">({{ article.domain }})</p>
             {% endif %}
 
-            {% if article.summary %}
-            <p class="article-summary">{{ article.summary }}</p>
-            {% endif %}
-
             {% if article.tags %}
             <div class="tags">
                 {% for tag in article.tags[:5] %}
                 <span class="tag">{{ tag }}</span>
                 {% endfor %}
             </div>
+            {% endif %}
+
+            {% if article.content %}
+            <div class="article-content">
+                {{ article.content | safe }}
+            </div>
+            {% elif article.summary %}
+            <p class="article-summary">{{ article.summary }}</p>
+            {% endif %}
+
+            {% if not loop.last %}
+            <hr class="article-separator" />
             {% endif %}
         </div>
         {% endfor %}
