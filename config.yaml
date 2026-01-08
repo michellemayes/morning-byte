@@ -1,0 +1,57 @@
+# Morning Byte Configuration
+# Customize your daily digest here!
+
+sources:
+  # Hacker News - Top tech stories
+  hackernews:
+    enabled: true
+    max_items: 15
+
+  # Reddit - Posts from tech subreddits
+  reddit:
+    enabled: true
+    max_items: 10
+    subreddits:
+      - programming
+      - technology
+      - MachineLearning
+      - LocalLLaMA
+
+  # Lobsters - Computing-focused community
+  lobsters:
+    enabled: true
+    max_items: 10
+
+  # Dev.to - Developer community articles
+  devto:
+    enabled: true
+    max_items: 8
+    tags:
+      - ai
+      - python
+      - webdev
+
+  # RSS/Atom feeds - Your favorite blogs
+  rss:
+    enabled: true
+    max_items: 5
+    feeds:
+      - url: https://blog.pragmaticengineer.com/rss/
+        name: Pragmatic Engineer
+      - url: https://simonwillison.net/atom/everything/
+        name: Simon Willison
+      - url: https://www.joelonsoftware.com/feed/
+        name: Joel on Software
+
+# Delivery settings (secrets set via GitHub Actions)
+delivery:
+  output_dir: ./output
+  keep_days: 7
+
+# Digest appearance
+digest:
+  title: Morning Byte
+  subtitle: Your Daily Tech Digest
+  max_articles_per_section: 15
+  include_comments_link: true
+  include_scores: true

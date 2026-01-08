@@ -32,7 +32,6 @@ ENV/
 *.swo
 
 # Project specific
-config.yaml
 *.epub
 output/
 .env

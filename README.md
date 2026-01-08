@@ -180,7 +180,31 @@ morning-byte list-digests
 
 ## Automated Daily Delivery
 
-### Using cron
+### Using GitHub Actions (Free Cloud Cron - Recommended)
+
+The easiest way to run Morning Byte automatically - completely free!
+
+**Setup (5 minutes):**
+
+1. **Fork/push this repo to GitHub**
+
+2. **Add secrets** in your repo → Settings → Secrets and variables → Actions:
+   - `KINDLE_EMAIL` - Your Kindle email (e.g., `yourname_abc@kindle.com`)
+   - `SENDER_EMAIL` - Your Gmail address
+   - `SMTP_USER` - Your Gmail address
+   - `SMTP_PASSWORD` - Gmail app password ([create one here](https://myaccount.google.com/apppasswords))
+
+3. **Customize** `config.yaml` with your preferred subreddits, RSS feeds, etc.
+
+4. **Done!** The workflow runs daily at 6 AM UTC. You can also trigger it manually from Actions tab.
+
+**Cost:** Free for public repos. Private repos get 2000 minutes/month free (this uses ~1 min/day = 30 min/month).
+
+**Test it:** Go to Actions → "Daily Tech Digest" → "Run workflow"
+
+---
+
+### Using cron (self-hosted)
 
 ```bash
 # Edit crontab
