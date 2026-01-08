@@ -1,0 +1,91 @@
+# Morning Byte Configuration
+# Copy this to config.yaml and customize for your needs
+
+sources:
+  # Hacker News - Top tech stories
+  hackernews:
+    enabled: true
+    max_items: 15
+
+  # Reddit - Posts from tech subreddits
+  reddit:
+    enabled: true
+    max_items: 10
+    subreddits:
+      - programming
+      - technology
+      - MachineLearning
+      - LocalLLaMA
+      # Add more subreddits you follow:
+      # - rust
+      # - golang
+      # - python
+      # - javascript
+      # - devops
+      # - selfhosted
+
+  # Lobsters - Computing-focused community
+  lobsters:
+    enabled: true
+    max_items: 10
+
+  # Dev.to - Developer community articles
+  devto:
+    enabled: true
+    max_items: 10
+    tags:
+      - python
+      - javascript
+      - ai
+      # Add more tags:
+      # - webdev
+      # - beginners
+      # - tutorial
+
+  # RSS/Atom feeds - Your favorite blogs
+  rss:
+    enabled: true
+    max_items: 5
+    feeds:
+      - url: https://blog.pragmaticengineer.com/rss/
+        name: Pragmatic Engineer
+      - url: https://simonwillison.net/atom/everything/
+        name: Simon Willison
+      - url: https://www.joelonsoftware.com/feed/
+        name: Joel on Software
+      # Add more feeds:
+      # - url: https://martinfowler.com/feed.atom
+      #   name: Martin Fowler
+      # - url: https://netflixtechblog.com/feed
+      #   name: Netflix Tech Blog
+
+# Delivery settings
+delivery:
+  # Kindle email (find in Amazon account settings)
+  kindle_email: ""  # e.g., yourname_abc@kindle.com
+
+  # Your email (must be in Kindle approved senders list)
+  sender_email: ""  # e.g., you@gmail.com
+
+  # SMTP settings (Gmail works well with app passwords)
+  smtp_host: smtp.gmail.com
+  smtp_port: 587
+  smtp_user: ""  # Your email
+  smtp_password: ""  # App password (not regular password!)
+
+  # Local storage
+  output_dir: ./output
+  keep_days: 7  # Days to keep old digests
+
+# Digest appearance
+digest:
+  title: Morning Byte
+  subtitle: Your Daily Tech Digest
+  max_articles_per_section: 15
+  include_comments_link: true
+  include_scores: true
+  topics:
+    - programming
+    - ai
+    - startups
+    - tech
